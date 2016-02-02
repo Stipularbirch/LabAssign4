@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Scripts</title> 
+        <style>
+            td{text-align:center;}
+            </style>  
+        <script>
+            function check(){
+                var age;
+                age = document.getElementById("agebox").value;
+                var element = document.getElementById("namebox");
+                var text = element.value;
+                if(text.length < 1){
+                    document.getElementById("result").innerHTML = "Name is blank";
+                }else if (age.length < 1){
+                    document.getElementById("result").innerHTML = "Age is blank";
+                }else if (age.length > 3) {
+                    document.getElementById("result").innerHTML = "Invalid Number";
+                }else if (age < 1) {
+                    document.getElementById("result").innerHTML = "Age too small";
+                }else if (age > 150) {
+                    document.getElementById("result").innerHTML = "Age too large";
+                }else {
+                    document.getElementById("result").innerHTML = "Hello my name is "+text+" and I am "+age+" years old.";
+                }
+            }
+            function guess(){
+                var num;
+                num = document.getElementById("numberbox").value;
+                if(num == 4){
+                    document.getElementById("output").innerHTML = "You Win!";
+                }else if (num < 4 && num > 0){
+                    document.getElementById("output").innerHTML = "You are too low. You guessed: "+num;
+                    document.getElementById("numberbox").value= '';
+                }else if (num > 4 && num < 11){
+                    document.getElementById("output").innerHTML = "You are too high. You guessed: "+num;
+                    document.getElementById("numberbox").value= '';
+                }else{
+                    document.getElementById("output").innerHTML = "Number not in range.  You guessed: "+num;
+                    document.getElementById("numberbox").value= '';
+                }
+
+            }
+        </script>
+    </head>
+    <body>
+        <p id="part1">
+            <br>Name:<br>
+            <input id="namebox" type="text">
+            <br><br>
+            Age:<br>
+            <input id="agebox" type="number">
+            <br>
+        </p>
+        <button type="button" onclick="check()">Make Sentence</button>
+        <br>
+        <p id="result"></p>
+        <br><br>
+        <br><br>
+        Guess a number between 1-10:<br>        
+        <input id="numberbox" type="number">        
+        <button type="button" onclick="guess()">Guess</button>
+        <br>
+        <p id="output"></p> 
+        <br>             
+        <hr>Created by:  Jordan Hallow 01/19/2016
+    </body>
+</html>
